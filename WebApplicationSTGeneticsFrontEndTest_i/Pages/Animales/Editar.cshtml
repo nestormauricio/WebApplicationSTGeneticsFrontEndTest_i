@@ -1,0 +1,96 @@
+﻿@page
+@model WebApplicationSTGeneticsFrontEndTest_i.Pages.Animales.EditarModel
+@{
+    ViewData["Title"] = "Editar animal";
+}
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-info">Editar animal</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Animal.AnimalId" />
+
+            <div class="container" style="padding:30px">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Animal.Name"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Animal.Name" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Animal.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Animal.Breed"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Animal.Breed" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Animal.Breed" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Animal.BirthDate"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Animal.BirthDate" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Animal.BirthDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Animal.Sex"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Animal.Sex" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Animal.Sex" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Animal.Price"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Animal.Price" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Animal.Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="Animal.Status"></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Animal.Status" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Animal.Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2 offset-sm-2">
+                            <input type="submit" value="Editar" class="btn btn-primary form-control" />
+                        </div>
+                        <div class="col-sm-4">
+                            <a asp-page="Index" class="btn btn-success form-control">Volver a lista</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

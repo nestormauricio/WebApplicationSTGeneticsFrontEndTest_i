@@ -1,0 +1,66 @@
+﻿@page
+@model WebApplicationSTGeneticsFrontEndTest_i.Pages.Animales.IndexModel
+@{
+    ViewData["Title"] = "Lista de animales";
+}
+@*<h3>Vamos bien</h3>*@
+@*@if (Model.Mensaje != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.Mensaje
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}*@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="text-info">Lista de animales</h2>
+            </div>
+            <div class="col-sm-6">
+                <a asp-page="Crear" class="btn btn-primary">Crear Nuevo Animal</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            @if (Model.Animales.Count() > 0)
+            {
+                <br />
+
+                <br />
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>@Html.DisplayNameFor(m => m.Animales.First().AnimalId)</th>
+                        <th>@Html.DisplayNameFor(m => m.Animales.First().Name)</th>
+                        <th>@Html.DisplayNameFor(m => m.Animales.First().Breed)</th>
+                        <th>@Html.DisplayNameFor(m => m.Animales.First().BirthDate)</th>
+                        <th>@Html.DisplayNameFor(m => m.Animales.First().Sex)</th>
+                        <th>@Html.DisplayNameFor(m => m.Animales.First().Price)</th>
+                        <th>@Html.DisplayNameFor(m => m.Animales.First().Status)</th>
+                    </tr>
+                    @foreach (var item in Model.Animales)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(m => item.AnimalId)</td>
+                            <td>@Html.DisplayFor(m => item.Name)</td>
+                            <td>@Html.DisplayFor(m => item.Breed)</td>
+                            <td>@Html.DisplayFor(m => item.BirthDate)</td>
+                            <td>@Html.DisplayFor(m => item.Sex)</td>
+                            <td>@Html.DisplayFor(m => item.Price)</td>
+                            <td>@Html.DisplayFor(m => item.Status)</td>
+                            <td>
+                                <a asp-route-id="@item.AnimalId" asp-page="Editar" class="btn btn-success btn-sm">Editar</a>
+                                <button asp-page-handler="Borrar" asp-route-id="@item.AnimalId" onclick="return confirm('¿Está seguro de querer borrar el animal?')" class="btn btn-danger btn-sm">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No hay animales registrados</p>
+            }
+        </form>
+    </div>
+</div>
